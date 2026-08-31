@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { siteConfig, siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,9 +13,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3003";
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
@@ -23,8 +21,7 @@ export const metadata: Metadata = {
     template: "%s | Kyan Labs",
   },
 
-  description:
-    "Kyan Labs membantu bisnis, UMKM, dan personal brand membangun website, aplikasi web, dan produk digital yang modern, cepat, responsif, dan profesional.",
+  description: siteConfig.description,
 
   keywords: [
     "jasa pembuatan website",
