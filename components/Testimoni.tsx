@@ -40,7 +40,7 @@ export default function Testimoni() {
   return (
     <section
       id="testimoni"
-      className="relative overflow-hidden bg-gradient-to-br from-[#161925] via-[#1c2131] to-[#235789]/40 px-6 py-28 text-white lg:py-36"
+      className="relative overflow-hidden bg-gradient-to-br from-[#161925] via-[#161925] to-[#235789] px-6 py-28 text-white lg:py-36"
     >
       <div
         aria-hidden="true"
