@@ -1,6 +1,7 @@
 import About from "../components/About";
 import CTA from "../components/CTA";
 import FAQ from "../components/FAQ";
+import FloatingWhatsApp from "../components/FloatingWhatsApp";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
@@ -30,6 +31,7 @@ export default function Home() {
       </main>
 
       <Footer />
+      <FloatingWhatsApp />
     </>
   );
 }
