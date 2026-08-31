@@ -2,7 +2,7 @@
 
 :root {
   --background: #fdfffc;
-  --foreground: #161925;
+  --foreground: #235789;
 }
 
 * {
@@ -44,7 +44,7 @@ section[id] {
 
 ::selection {
   background: #f1d302;
-  color: #161925;
+  color: #235789;
 }
 
 @media (prefers-reduced-motion: reduce) {

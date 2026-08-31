@@ -27,7 +27,7 @@ export default function About() {
       <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[0.75fr_1.25fr] lg:gap-24">
         {/* Left */}
         <div>
-          <div className="sticky top-28 flex min-h-[340px] flex-col justify-between rounded-[28px] bg-[#161925] p-8 text-white">
+          <div className="sticky top-28 flex min-h-[340px] flex-col justify-between rounded-[28px] bg-[#235789] p-8 text-white">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#F1D302]">
                 Tentang Kami

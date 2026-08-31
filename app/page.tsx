@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <Navbar />
 
-      <main className="min-h-screen bg-[#FDFFFC] text-[#161925]">
+      <main className="min-h-screen bg-[#FDFFFC] text-[#235789]">
         <Hero />
         <Trust />
         <About />

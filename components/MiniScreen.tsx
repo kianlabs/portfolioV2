@@ -43,7 +43,7 @@ function BrowserFrame({
 
 const brandContentStyle: CSSProperties = {
   fontFamily: "sans-serif",
-  color: "#161925",
+  color: "#235789",
 };
 
 function BrandScreen({ accent }: { accent: string }) {
@@ -67,8 +67,8 @@ function BrandScreen({ accent }: { accent: string }) {
             className="h-3 w-16 rounded-sm"
             style={{ backgroundColor: accent }}
           />
-          <div className="mt-2.5 h-4 w-full rounded-sm bg-[#161925]" />
-          <div className="mt-1.5 h-4 w-4/5 rounded-sm bg-[#161925]" />
+          <div className="mt-2.5 h-4 w-full rounded-sm bg-[#235789]" />
+          <div className="mt-1.5 h-4 w-4/5 rounded-sm bg-[#235789]" />
           <div className="mt-2.5 h-2 w-full rounded-sm bg-[#D9DCE2]" />
           <div className="mt-1 h-2 w-3/4 rounded-sm bg-[#D9DCE2]" />
           <div
@@ -114,7 +114,7 @@ function StoreScreen({ accent }: { accent: string }) {
                 style={{ backgroundColor: accent, opacity: 0.35 }}
               />
             </div>
-            <div className="mt-1.5 h-1.5 w-3/4 rounded-sm bg-[#161925]" />
+            <div className="mt-1.5 h-1.5 w-3/4 rounded-sm bg-[#235789]" />
             <div
               className="mt-1 h-1.5 w-8 rounded-sm"
               style={{ backgroundColor: accent }}

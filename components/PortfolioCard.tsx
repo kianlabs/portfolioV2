@@ -40,7 +40,7 @@ export default function PortfolioCard({
         delay: index * 0.09,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className="group relative flex flex-col rounded-[24px] border border-white/10 bg-[#202433] p-5"
+      className="group relative flex flex-col rounded-[24px] border border-black/10 bg-[#FDFFFC] p-5"
     >
       <div
         className="pointer-events-none absolute right-5 top-5 z-10 flex h-10 w-10 items-center justify-center rounded-full text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100"
@@ -63,11 +63,11 @@ export default function PortfolioCard({
           {project.category}
         </span>
 
-        <h3 className="mt-2 text-2xl font-semibold tracking-[-0.03em] text-white sm:text-[1.6rem]">
+        <h3 className="mt-2 text-2xl font-semibold tracking-[-0.03em] text-[#235789] sm:text-[1.6rem]">
           {project.title}
         </h3>
 
-        <p className="mt-3 text-sm leading-7 text-white/60">
+        <p className="mt-3 text-sm leading-7 text-[#514f59]">
           {project.description}
         </p>
 
@@ -75,7 +75,7 @@ export default function PortfolioCard({
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/70"
+              className="rounded-full border border-black/10 bg-[#F1D302]/10 px-3 py-1.5 text-xs text-[#235789]/80"
             >
               {tag}
             </span>
@@ -84,7 +84,7 @@ export default function PortfolioCard({
 
         <a
           href="#kontak"
-          className="mt-7 inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+          className="mt-7 inline-flex items-center justify-center rounded-full bg-[#235789] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#C1292E]"
         >
           Diskusikan project serupa
         </a>

@@ -84,7 +84,7 @@ export default function Pricing() {
                 </span>
               )}
 
-              <h3 className="text-2xl font-semibold tracking-[-0.03em] text-[#161925]">
+              <h3 className="text-2xl font-semibold tracking-[-0.03em] text-[#235789]">
                 {pkg.name}
               </h3>
 
@@ -94,7 +94,7 @@ export default function Pricing() {
                     {pkg.priceLabel}
                   </span>
                 )}
-                <span className="text-4xl font-bold tracking-[-0.04em] text-[#161925]">
+                <span className="text-4xl font-bold tracking-[-0.04em] text-[#235789]">
                   {pkg.price}
                 </span>
                 {pkg.name === "Company Profile" && (
@@ -116,7 +116,7 @@ export default function Pricing() {
                     key={feature}
                     className="flex items-start gap-3 text-sm text-[#514f59]"
                   >
-                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#161925] text-white">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#235789] text-white">
                       <span className="text-[11px]">✓</span>
                     </span>
                     {feature}
@@ -129,7 +129,7 @@ export default function Pricing() {
                 className={`mt-8 inline-flex items-center justify-center rounded-full px-6 py-3.5 text-sm font-semibold transition hover:-translate-y-0.5 ${
                   pkg.popular
                     ? "bg-[#C1292E] text-white hover:bg-[#A52025]"
-                    : "bg-[#161925] text-white hover:bg-[#235789]"
+                    : "bg-[#235789] text-white hover:bg-[#235789]"
                 }`}
               >
                 Diskusikan paket ini

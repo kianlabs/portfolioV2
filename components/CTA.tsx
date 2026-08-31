@@ -7,7 +7,7 @@ export default function CTA() {
       <div
         data-reveal
         className="mx-auto max-w-7xl">
-        <div className="overflow-hidden rounded-[32px] bg-[#161925] px-8 py-16 text-white sm:px-12 lg:px-16 lg:py-20">
+        <div className="overflow-hidden rounded-[32px] bg-[#235789] px-8 py-16 text-white sm:px-12 lg:px-16 lg:py-20">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#F1D302]">
             Mulai Project Anda
           </p>

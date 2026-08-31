@@ -12,35 +12,35 @@ export default function Navbar() {
         <nav className="hidden items-center gap-8 md:flex">
           <a
             href="#tentang"
-            className="text-sm text-[#514f59] transition hover:text-[#161925]"
+            className="text-sm text-[#514f59] transition hover:text-[#235789]"
           >
             Tentang
           </a>
 
           <a
             href="#layanan"
-            className="text-sm text-[#514f59] transition hover:text-[#161925]"
+            className="text-sm text-[#514f59] transition hover:text-[#235789]"
           >
             Layanan
           </a>
 
           <a
             href="#portfolio"
-            className="text-sm text-[#514f59] transition hover:text-[#161925]"
+            className="text-sm text-[#514f59] transition hover:text-[#235789]"
           >
             Portfolio
           </a>
 
           <a
             href="#proses"
-            className="text-sm text-[#514f59] transition hover:text-[#161925]"
+            className="text-sm text-[#514f59] transition hover:text-[#235789]"
           >
             Proses
           </a>
 
           <a
             href="#faq"
-            className="text-sm text-[#514f59] transition hover:text-[#161925]"
+            className="text-sm text-[#514f59] transition hover:text-[#235789]"
           >
             FAQ
           </a>

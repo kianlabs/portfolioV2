@@ -50,7 +50,7 @@ export default function Process() {
 
             <a
               href="#kontak"
-              className="mt-8 inline-flex rounded-full bg-[#161925] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#235789]"
+              className="mt-8 inline-flex rounded-full bg-[#235789] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#235789]"
             >
               Mulai konsultasi ↗
             </a>
@@ -76,7 +76,7 @@ export default function Process() {
                       ? "text-[#235789]"
                       : step.number === "03"
                         ? "text-[#9B8900]"
-                        : "text-[#161925]"
+                        : "text-[#235789]"
                 }`}
               >
                 {step.number}

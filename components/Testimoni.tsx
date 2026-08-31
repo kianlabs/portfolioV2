@@ -67,7 +67,7 @@ export default function Testimoni() {
         <div className="mt-16 grid divide-y divide-black/10 rounded-[28px] border border-black/10 bg-white sm:grid-cols-3 sm:divide-x sm:divide-y-0">
           {stats.map((stat) => (
             <div key={stat.label} className="px-8 py-10 text-center">
-              <span className="block text-5xl font-bold tracking-[-0.03em] text-[#161925]">
+              <span className="block text-5xl font-bold tracking-[-0.03em] text-[#235789]">
                 {stat.value}
               </span>
               <span className="mt-3 block text-sm text-[#626773]">

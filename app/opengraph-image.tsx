@@ -20,7 +20,7 @@ export default function Image() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#161925",
+          background: "#235789",
           color: "#FDFFFC",
           padding: "72px",
           fontFamily: "sans-serif",

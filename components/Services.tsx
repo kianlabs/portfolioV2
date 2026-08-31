@@ -4,7 +4,7 @@ const services = [
     title: "Website Company Profile",
     description:
       "Website profesional untuk memperkenalkan bisnis, layanan, produk, dan meningkatkan kepercayaan calon customer.",
-    className: "bg-[#161925] text-white",
+    className: "bg-[#235789] text-white",
     numberClass: "text-[#F1D302]",
     descriptionClass: "text-white/60",
   },
