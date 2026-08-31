@@ -8,6 +8,7 @@ import Portfolio from "../components/Portfolio";
 import Pricing from "../components/Pricing";
 import Process from "../components/Process";
 import Services from "../components/Services";
+import Testimoni from "../components/Testimoni";
 import Trust from "../components/Trust";
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
         <Services />
         <Pricing />
         <Portfolio />
+        <Testimoni />
         <Process />
         <FAQ />
         <CTA />
