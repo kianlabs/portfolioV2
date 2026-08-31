@@ -35,19 +35,19 @@ export default function TestimonialCard({
     ];
 
   return (
-    <figure className="flex flex-col rounded-[28px] border border-black/10 bg-white p-8">
+    <figure className="flex flex-col rounded-[28px] border border-white/15 bg-white/10 p-8 backdrop-blur-xl">
       <span
-        className="text-4xl leading-none text-[#C1292E]"
+        className="text-4xl leading-none text-[#F1D302]"
         aria-hidden="true"
       >
         “
       </span>
 
-      <blockquote className="mt-3 flex-1 text-base leading-7 text-[#514f59]">
+      <blockquote className="mt-3 flex-1 text-base leading-7 text-white/85">
         {content}
       </blockquote>
 
-      <figcaption className="mt-7 flex items-center gap-4">
+      <figcaption className="mt-7 flex items-center gap-4 border-t border-white/10 pt-6">
         {avatar ? (
           <Image
             src={avatar}
@@ -65,10 +65,10 @@ export default function TestimonialCard({
         )}
 
         <div>
-          <span className="block font-semibold text-[#161925]">
+          <span className="block font-semibold text-white">
             {name}
           </span>
-          <span className="block text-sm text-[#626773]">
+          <span className="block text-sm text-white/60">
             {role}
           </span>
         </div>
