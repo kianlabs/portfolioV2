@@ -42,7 +42,7 @@ export default function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="bg-[#161925] px-6 py-28 text-white lg:py-36"
+      className="bg-[#235789] px-6 py-28 text-white lg:py-36"
     >
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
