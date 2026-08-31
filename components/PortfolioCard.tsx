@@ -81,6 +81,13 @@ export default function PortfolioCard({
             </span>
           ))}
         </div>
+
+        <a
+          href="#kontak"
+          className="mt-7 inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+        >
+          Diskusikan project serupa
+        </a>
       </div>
     </motion.article>
   );
