@@ -65,7 +65,7 @@ export default function Hero() {
         data-hero-preview
         className="relative"
       >
-        <div className="overflow-hidden rounded-[28px] border border-black/10 bg-white p-3 shadow-2xl shadow-black/10">
+        <div className="overflow-hidden rounded-[28px] border border-black/10 bg-white p-3">
           <div className="flex h-10 items-center gap-2 border-b border-black/5 px-3">
             <span className="h-2.5 w-2.5 rounded-full bg-[#C1292E]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[#F1D302]" />

@@ -23,7 +23,7 @@ function BrowserFrame({
   children: React.ReactNode;
 }) {
   return (
-    <div className="overflow-hidden rounded-t-[22px] border border-black/10 bg-white shadow-2xl shadow-black/25">
+    <div className="overflow-hidden rounded-t-[22px] border border-black/10 bg-white">
       <div className="flex h-9 items-center gap-2 border-b border-black/5 bg-[#F7F7F7] px-3.5">
         {trafficDots.map((dot) => (
           <span

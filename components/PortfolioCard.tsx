@@ -40,7 +40,7 @@ export default function PortfolioCard({
         delay: index * 0.09,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className="group relative flex flex-col rounded-[24px] border border-white/10 bg-[#202433] p-5 transition-shadow duration-300 hover:shadow-2xl hover:shadow-black/40"
+      className="group relative flex flex-col rounded-[24px] border border-white/10 bg-[#202433] p-5"
     >
       <div
         className="pointer-events-none absolute right-5 top-5 z-10 flex h-10 w-10 items-center justify-center rounded-full text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100"
