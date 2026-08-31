@@ -74,7 +74,7 @@ export default function Hero() {
             <div className="ml-3 h-5 flex-1 rounded-md bg-[#f1f2f4]" />
           </div>
 
-          <div className="min-h-[480px] rounded-2xl bg-[#235789] p-8 text-white">
+          <div className="min-h-[480px] rounded-2xl bg-[#161925] p-8 text-white">
             <div className="flex items-center justify-between text-xs text-white/50">
               <strong className="text-white">
                 Kyan Labs.

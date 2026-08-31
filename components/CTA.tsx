@@ -2,7 +2,7 @@ export default function CTA() {
   return (
     <section
       id="kontak"
-      className="bg-[#235789] px-6 py-28 text-[#FDFFFC] lg:py-36"
+      className="bg-[#161925] px-6 py-28 text-[#FDFFFC] lg:py-36"
     >
       <div className="mx-auto max-w-4xl text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#F1D302]">
@@ -24,7 +24,7 @@ export default function CTA() {
             href="https://wa.me/6281318679190"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-[#FDFFFC] px-6 py-3.5 text-sm font-semibold text-[#235789] transition hover:bg-[#F1D302]"
+            className="rounded-full bg-[#FDFFFC] px-6 py-3.5 text-sm font-semibold text-[#161925] transition hover:bg-[#F1D302]"
           >
             Konsultasi via WhatsApp ↗
           </a>

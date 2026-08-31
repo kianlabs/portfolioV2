@@ -65,7 +65,7 @@ export default function TestimonialCard({
         )}
 
         <div>
-          <span className="block font-semibold text-[#235789]">
+          <span className="block font-semibold text-[#161925]">
             {name}
           </span>
           <span className="block text-sm text-[#626773]">

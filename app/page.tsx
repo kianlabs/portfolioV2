@@ -9,7 +9,6 @@ import Portfolio from "../components/Portfolio";
 import Pricing from "../components/Pricing";
 import Process from "../components/Process";
 import Services from "../components/Services";
-import Testimoni from "../components/Testimoni";
 import Trust from "../components/Trust";
 
 export default function Home() {
@@ -17,14 +16,13 @@ export default function Home() {
     <>
       <Navbar />
 
-      <main className="min-h-screen bg-[#FDFFFC] text-[#235789]">
+      <main className="min-h-screen bg-[#FDFFFC] text-[#161925]">
         <Hero />
         <Trust />
         <About />
         <Services />
         <Pricing />
         <Portfolio />
-        <Testimoni />
         <Process />
         <FAQ />
         <CTA />
