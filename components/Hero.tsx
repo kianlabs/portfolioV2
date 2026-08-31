@@ -1,6 +1,72 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 
+/**
+ * Minimal premium laptop mockup.
+ * - Screen renders the Bertani screenshot when available (public/projects/bertani.webp),
+ *   otherwise a clear placeholder in place.
+ * - Set canShowImage to true once the file exists.
+ */
+function LaptopShowcase() {
+  const canShowImage = false;
+
+  return (
+    <div
+      data-laptop
+      className="relative mx-auto w-full max-w-xl lg:max-w-none"
+    >
+      {/* Screen */}
+      <div className="overflow-hidden rounded-t-xl bg-[#101216] p-1.5 sm:p-2">
+        {/* Thin top bezel / camera notch */}
+        <div className="mb-1.5 flex justify-center">
+          <div className="h-1 w-16 rounded-full bg-[#1c1f26]" />
+        </div>
+
+        <div className="relative overflow-hidden rounded-md bg-[#161925]">
+          {canShowImage ? (
+            <Image
+              src="/projects/bertani.webp"
+              alt="Bertani — Web Application screenshot"
+              width={1280}
+              height={800}
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="aspect-[16/10] w-full object-cover"
+              priority
+            />
+          ) : (
+            <div className="flex aspect-[16/10] items-center justify-center p-8">
+              <div className="text-center">
+                <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/30">
+                  Bertani
+                </p>
+                <p className="mt-3 text-xl font-bold tracking-[-0.02em] text-white/50 sm:text-2xl">
+                  Web Application
+                </p>
+                <p className="mt-2 text-sm text-white/40">
+                  Screenshot coming soon
+                </p>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Laptop base */}
+      <div className="relative mx-2 h-3 rounded-b-2xl bg-[#0c0e12] sm:mx-3 sm:h-3.5">
+        <div className="mx-6 h-full rounded-b-xl bg-[#15171c] sm:mx-10">
+          <div className="absolute inset-x-0 bottom-0 h-1 rounded-b-2xl bg-[#1f2229]" />
+        </div>
+      </div>
+
+      {/* Soft grounding shadow under the laptop only */}
+      <div
+        className="absolute -bottom-6 left-1/2 h-6 w-4/5 -translate-x-1/2 rounded-[100%] bg-[#161925]/15 blur-md"
+        aria-hidden="true"
+      />
+    </div>
+  );
+}
+
 export default function Hero() {
   return (
     <section
@@ -60,39 +126,12 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Right — Featured project visual (Bertani) */}
+      {/* Right — Featured project laptop (Bertani) */}
       <div
         data-hero-preview
         className="relative"
       >
-        <div className="overflow-hidden rounded-lg bg-[#161925]">
-          {/* Set hasImage to true once /projects/bertani.webp is available in public/. */}
-          {false ? (
-            <Image
-              src="/projects/bertani.webp"
-              alt="Bertani — Web Application"
-              width={1200}
-              height={900}
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="aspect-[4/3] w-full object-cover"
-              priority
-            />
-          ) : (
-            <div className="flex aspect-[4/3] min-h-[400px] items-center justify-center p-8 sm:min-h-[480px]">
-              <div className="text-center">
-                <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/30">
-                  Featured Project
-                </p>
-                <p className="mt-3 text-3xl font-bold tracking-[-0.02em] text-white/50">
-                  Bertani
-                </p>
-                <p className="mt-2 max-w-[220px] text-sm text-white/40">
-                  Web Application — screenshot akan tampil di sini.
-                </p>
-              </div>
-            </div>
-          )}
-        </div>
+        <LaptopShowcase />
       </div>
     </section>
   );

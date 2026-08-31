@@ -60,7 +60,10 @@ export default function ScrollAnimations() {
           {
             opacity: 0,
             y: 30,
-            duration: 0.9,
+            rotateX: 2,
+            rotateY: -2,
+            transformPerspective: 1200,
+            duration: 1,
           },
           "-=0.8",
         );
