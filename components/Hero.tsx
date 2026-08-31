@@ -80,23 +80,22 @@ export default function Hero() {
                 Kyan Labs.
               </strong>
 
-              <span>Work · About · Contact</span>
+              <span>Portfolio · Tentang · Kontak</span>
             </div>
 
             <div className="pt-24">
               <span className="text-xs font-medium uppercase tracking-[0.2em] text-[#F1D302]">
-                Digital Experience
+                Pengalaman Digital
               </span>
 
               <h2 className="mt-5 max-w-md text-5xl font-bold leading-none tracking-[-0.05em]">
-                Built for people.
+                Website & aplikasi
                 <br />
-                Designed for growth.
+                yang membantu bisnis tumbuh.
               </h2>
 
               <p className="mt-6 max-w-sm leading-7 text-white/55">
-                Strategic websites and digital products for modern
-                businesses.
+                Dirancang strategis untuk bisnis modern di Indonesia.
               </p>
 
               <div className="mt-12 h-28 rounded-2xl border border-white/10 bg-white/5" />
