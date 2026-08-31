@@ -74,12 +74,12 @@ export default function Pricing() {
               key={pkg.name}
               className={`relative flex flex-col rounded-[28px] border p-8 ${
                 pkg.popular
-                  ? "border-[#C1292E]/20 bg-[#FDF6F6] shadow-lg shadow-[#C1292E]/5"
+                  ? "border-[#235789] bg-[#F1D302]"
                   : "border-black/10 bg-white"
               }`}
             >
               {pkg.popular && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#C1292E] px-4 py-1 text-xs font-semibold text-white">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#235789] px-4 py-1 text-xs font-semibold text-[#FDFFFC]">
                   Paling Populer
                 </span>
               )}
@@ -90,7 +90,11 @@ export default function Pricing() {
 
               <div className="mt-4 flex items-baseline gap-2">
                 {pkg.priceLabel && (
-                  <span className="text-sm text-[#626773]">
+                  <span
+                    className={`text-sm ${
+                      pkg.popular ? "text-[#235789]/80" : "text-[#626773]"
+                    }`}
+                  >
                     {pkg.priceLabel}
                   </span>
                 )}
@@ -98,25 +102,43 @@ export default function Pricing() {
                   {pkg.price}
                 </span>
                 {pkg.name === "Company Profile" && (
-                  <span className="text-xs text-[#8A8E98]">
+                  <span
+                    className={`text-xs ${
+                      pkg.popular ? "text-[#235789]/70" : "text-[#8A8E98]"
+                    }`}
+                  >
                     / project
                   </span>
                 )}
               </div>
 
-              <p className="mt-4 text-sm leading-7 text-[#626773]">
+              <p
+                className={`mt-4 text-sm leading-7 ${
+                  pkg.popular ? "text-[#235789]/90" : "text-[#626773]"
+                }`}
+              >
                 {pkg.audience}
               </p>
 
-              <div className="my-6 h-px bg-black/10" />
+              <div
+                className={`my-6 h-px ${
+                  pkg.popular ? "bg-[#235789]/20" : "bg-black/10"
+                }`}
+              />
 
               <ul className="space-y-3">
                 {pkg.features.map((feature) => (
                   <li
                     key={feature}
-                    className="flex items-start gap-3 text-sm text-[#514f59]"
+                    className={`flex items-start gap-3 text-sm ${
+                      pkg.popular ? "text-[#235789]" : "text-[#514f59]"
+                    }`}
                   >
-                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#235789] text-white">
+                    <span
+                      className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-white ${
+                        pkg.popular ? "bg-[#235789]" : "bg-[#235789]"
+                      }`}
+                    >
                       <span className="text-[11px]">✓</span>
                     </span>
                     {feature}
@@ -126,10 +148,10 @@ export default function Pricing() {
 
               <a
                 href="#kontak"
-                className={`mt-8 inline-flex items-center justify-center rounded-full px-6 py-3.5 text-sm font-semibold transition hover:-translate-y-0.5 ${
+                className={`mt-8 inline-flex items-center justify-center rounded-full px-6 py-3.5 text-sm font-semibold text-[#FDFFFC] transition ${
                   pkg.popular
-                    ? "bg-[#C1292E] text-white hover:bg-[#A52025]"
-                    : "bg-[#235789] text-white hover:bg-[#235789]"
+                    ? "bg-[#235789] hover:bg-[#C1292E]"
+                    : "bg-[#235789] hover:bg-[#235789]"
                 }`}
               >
                 Diskusikan paket ini
