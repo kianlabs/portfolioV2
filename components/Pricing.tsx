@@ -92,7 +92,7 @@ export default function Pricing() {
                 {pkg.priceLabel && (
                   <span
                     className={`text-sm ${
-                      pkg.popular ? "text-white/60" : "text-[#626773]"
+                      pkg.popular ? "text-white/70" : "text-[#626773]"
                     }`}
                   >
                     {pkg.priceLabel}
@@ -104,7 +104,7 @@ export default function Pricing() {
                 {pkg.name === "Company Profile" && (
                   <span
                     className={`text-xs ${
-                      pkg.popular ? "text-white/50" : "text-[#8A8E98]"
+                      pkg.popular ? "text-white/70" : "text-[#8A8E98]"
                     }`}
                   >
                     / project

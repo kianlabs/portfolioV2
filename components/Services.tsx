@@ -32,7 +32,7 @@ const services = [
     description:
       "Update konten, bug fix, optimasi, dan pengembangan fitur setelah website diluncurkan.",
     className: "bg-[#FBF5CD]",
-    numberClass: "text-[#8A7800]",
+    numberClass: "text-[#161925]",
     descriptionClass: "text-[#626773]",
   },
 ];

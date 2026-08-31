@@ -56,7 +56,7 @@ export default function Portfolio() {
             </h2>
           </div>
 
-          <p className="max-w-md text-base leading-7 text-white/55 lg:text-right">
+          <p className="max-w-md text-base leading-7 text-white/70 lg:text-right">
             Setiap project dibuat berdasarkan kebutuhan bisnis, bukan
             sekadar mengikuti template yang sama.
           </p>

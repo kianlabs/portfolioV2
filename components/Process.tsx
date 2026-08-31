@@ -71,12 +71,12 @@ export default function Process() {
               <span
                 className={`text-xs font-semibold tracking-[0.18em] ${
                   step.number === "01"
-                    ? "text-[#C1292E]"
-                    : step.number === "02"
-                      ? "text-[#235789]"
-                      : step.number === "03"
-                        ? "text-[#9B8900]"
-                        : "text-[#235789]"
+                        ? "text-[#C1292E]"
+                      : step.number === "02"
+                        ? "text-[#235789]"
+                        : step.number === "03"
+                          ? "text-[#C1292E]"
+                          : "text-[#235789]"
                 }`}
               >
                 {step.number}

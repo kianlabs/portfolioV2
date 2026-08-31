@@ -94,7 +94,7 @@ export default function Hero() {
                 yang membantu bisnis tumbuh.
               </h2>
 
-              <p className="mt-6 max-w-sm leading-7 text-white/55">
+              <p className="mt-6 max-w-sm leading-7 text-white/70">
                 Dirancang strategis untuk bisnis modern di Indonesia.
               </p>
 

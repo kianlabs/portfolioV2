@@ -57,8 +57,7 @@ export default function PortfolioCard({
 
       <div className="mt-5 flex flex-1 flex-col">
         <span
-          className="text-xs font-semibold uppercase tracking-[0.18em]"
-          style={{ color: project.accent }}
+          className="text-xs font-semibold uppercase tracking-[0.18em] text-[#626773]"
         >
           {project.category}
         </span>
@@ -75,7 +74,7 @@ export default function PortfolioCard({
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-black/10 bg-[#F1D302]/10 px-3 py-1.5 text-xs text-[#161925]/80"
+              className="rounded-full border border-black/10 bg-[#F1D302]/10 px-3 py-1.5 text-xs text-[#161925]"
             >
               {tag}
             </span>

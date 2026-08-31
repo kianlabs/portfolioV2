@@ -31,7 +31,7 @@ export default function CTA() {
 
           <a
             href="mailto:ridzkyan0504@gmail.com"
-            className="rounded-full border border-[#FDFFFC]/40 px-6 py-3.5 text-sm font-semibold text-[#FDFFFC] transition hover:border-[#FDFFFC]/70"
+            className="rounded-full border border-[#FDFFFC]/60 px-6 py-3.5 text-sm font-semibold text-[#FDFFFC] transition hover:border-[#FDFFFC]/80"
           >
             Kirim Email
           </a>

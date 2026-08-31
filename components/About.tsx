@@ -38,7 +38,7 @@ export default function About() {
               </span>
             </div>
 
-            <p className="max-w-sm text-sm leading-7 text-white/60">
+            <p className="max-w-sm text-sm leading-7 text-white/70">
               Kami membuat website bukan sekadar agar terlihat bagus,
               tetapi agar bisnis Anda terlihat profesional dan lebih
               mudah dipercaya calon customer.
