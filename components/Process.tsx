@@ -1,27 +1,27 @@
 const steps = [
   {
     number: "01",
-    title: "Konsultasi",
+    title: "Diskusi",
     description:
       "Ceritakan kebutuhan, tujuan, referensi, dan fitur yang Anda inginkan.",
   },
   {
     number: "02",
-    title: "Desain",
+    title: "Perencanaan",
     description:
-      "Kami menyusun struktur halaman dan desain visual sesuai brand serta kebutuhan bisnis Anda.",
+      "Kami menyusun struktur, alur, dan rencana desain sesuai brand serta kebutuhan bisnis Anda.",
   },
   {
     number: "03",
-    title: "Development",
+    title: "Pengembangan",
     description:
       "Desain dikembangkan menjadi website atau aplikasi yang responsif, cepat, dan siap digunakan.",
   },
   {
     number: "04",
-    title: "Launch",
+    title: "Launch & Support",
     description:
-      "Website dipublikasikan ke domain Anda dan kami bantu memastikan semuanya berjalan dengan baik.",
+      "Website dipublikasikan dan kami bantu memastikan semuanya berjalan dengan baik.",
   },
 ];
 
@@ -34,68 +34,78 @@ export default function Process() {
       <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
         {/* Left */}
         <div data-reveal>
-          <div className="sticky top-28">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#C1292E]">
-              Cara Kerja
-            </p>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#C1292E]">
+            Proses Kerja
+          </p>
 
-            <h2 className="mt-5 max-w-xl text-4xl font-bold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-              4 langkah mudah memulai project.
-            </h2>
-
-            <p className="mt-6 max-w-lg text-base leading-7 text-[#626773]">
-              Proses dibuat sederhana dan transparan agar Anda selalu
-              mengetahui perkembangan project dari awal sampai rilis.
-            </p>
-
-            <a
-              href="#kontak"
-              className="mt-8 inline-flex rounded-full bg-[#161925] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#161925]"
-            >
-              Mulai konsultasi ↗
-            </a>
-          </div>
+          <h2 className="mt-5 max-w-xl text-4xl font-bold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-6xl">
+            Sederhana,
+            <br />
+            terstruktur,
+            <br />
+            dan transparan.
+          </h2>
         </div>
 
-        {/* Right */}
+        {/* Right — Horizontal steps */}
         <div
           data-process-list
           className="border-t border-black/10"
         >
-          {steps.map((step) => (
-            <article
-              data-process-step
-              key={step.number}
-              className="grid gap-5 border-b border-black/10 py-9 sm:grid-cols-[80px_1fr]"
-            >
-              <span
-                className={`text-xs font-semibold tracking-[0.18em] ${
-                  step.number === "01"
-                        ? "text-[#C1292E]"
-                      : step.number === "02"
-                        ? "text-[#235789]"
-                        : step.number === "03"
-                          ? "text-[#C1292E]"
-                          : "text-[#235789]"
+          {/* Desktop: horizontal */}
+          <div className="hidden gap-0 lg:grid lg:grid-cols-4">
+            {steps.map((step, i) => (
+              <div
+                key={step.number}
+                data-process-step
+                className={`py-8 ${
+                  i < steps.length - 1 ? "border-r border-black/10 pr-8" : ""
                 }`}
               >
-                {step.number}
-              </span>
-
-              <div>
-                <h3 className="text-2xl font-semibold tracking-[-0.035em] sm:text-3xl">
+                <div className="flex items-center gap-3">
+                  <span className="text-xs font-semibold tracking-[0.15em] text-[#C1292E]">
+                    {step.number}
+                  </span>
+                  {i < steps.length - 1 && (
+                    <span className="h-px flex-1 bg-black/10" />
+                  )}
+                </div>
+                <h3 className="mt-6 text-lg font-bold tracking-[-0.02em]">
                   {step.title}
                 </h3>
-
-                <p className="mt-3 max-w-xl text-sm leading-7 text-[#626773]">
+                <p className="mt-2 text-sm leading-6 text-[#626773]">
                   {step.description}
                 </p>
               </div>
-            </article>
-          ))}
+            ))}
+          </div>
+
+          {/* Mobile: vertical */}
+          <div className="space-y-0 lg:hidden">
+            {steps.map((step, i) => (
+              <div
+                key={step.number}
+                data-process-step
+                className={`flex gap-5 py-8 ${
+                  i < steps.length - 1 ? "border-b border-black/10" : ""
+                }`}
+              >
+                <span className="text-xs font-semibold tracking-[0.15em] text-[#C1292E]">
+                  {step.number}
+                </span>
+                <div>
+                  <h3 className="text-lg font-bold tracking-[-0.02em]">
+                    {step.title}
+                  </h3>
+                  <p className="mt-2 max-w-sm text-sm leading-6 text-[#626773]">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
-

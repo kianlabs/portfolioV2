@@ -30,16 +30,18 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="bg-white px-6 py-28 lg:py-36"
+      className="bg-[#FDFFFC] px-6 py-28 lg:py-36"
     >
       <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[0.75fr_1.25fr] lg:gap-24">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#C1292E]">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#C1292E]">
             FAQ
           </p>
 
           <h2 className="mt-5 max-w-xl text-4xl font-bold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-            Pertanyaan yang sering ditanyakan.
+            Pertanyaan yang
+            <br />
+            sering ditanyakan.
           </h2>
         </div>
 
@@ -67,5 +69,3 @@ export default function FAQ() {
     </section>
   );
 }
-
-

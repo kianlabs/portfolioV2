@@ -1,109 +1,99 @@
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
+
 export default function Hero() {
   return (
     <section
       id="beranda"
       data-hero
-      className="mx-auto grid min-h-screen max-w-7xl items-center gap-16 px-6 pb-20 pt-32 lg:grid-cols-2"
+      className="mx-auto grid min-h-screen max-w-7xl items-center gap-16 px-6 pb-20 pt-32 lg:grid-cols-2 lg:gap-24"
     >
       {/* Left */}
       <div>
-        <div
+        <p
           data-hero-badge
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-sm text-[#514f59]"
+          className="mb-8 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#626773]"
         >
-          <span className="h-2 w-2 rounded-full bg-[#F1D302]" />
-          Solusi digital untuk bisnis modern
-        </div>
+          Web &amp; Application Development
+        </p>
 
         <h1
           data-hero-title
-          className="max-w-3xl text-5xl font-bold leading-[0.98] tracking-[-0.055em] sm:text-6xl lg:text-7xl"
+          className="max-w-3xl text-5xl font-bold leading-[0.95] tracking-[-0.04em] sm:text-6xl lg:text-7xl"
         >
-          Jasa pembuatan{" "}
-          <span className="text-[#C1292E]">
-            website & aplikasi
-          </span>{" "}
-          profesional.
+          We build digital
+          <br />
+          products that help
+          <br />
+          businesses{" "}
+          <span className="text-[#C1292E]">grow.</span>
         </h1>
 
         <p
           data-hero-text
-          className="mt-8 max-w-xl text-lg leading-8 text-[#514f59]"
+          className="mt-8 max-w-lg text-base leading-7 text-[#514f59]"
         >
-          Kyan Labs membantu bisnis, UMKM, dan personal brand
-          membangun website modern yang profesional, cepat,
-          responsif, dan mudah dipercaya customer.
+          Kyan Labs membantu bisnis, UMKM, startup, dan personal brand
+          mewujudkan website dan aplikasi yang cepat, modern,
+          dan mudah digunakan.
         </p>
 
         <div
           data-hero-actions
-          className="mt-10 flex flex-wrap gap-3"
+          className="mt-10 flex flex-wrap items-center gap-4"
         >
           <a
             href="#kontak"
-            className="rounded-full bg-[#C1292E] px-6 py-3.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#a82025]"
+            className="inline-flex items-center gap-2 rounded-md bg-[#C1292E] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#a82025]"
           >
-            Konsultasi Sekarang ↗
+            Diskusikan project Anda
+            <ArrowUpRight className="h-4 w-4" />
           </a>
 
           <a
-            href="#portfolio"
-            className="rounded-full border border-black/10 bg-white px-6 py-3.5 text-sm font-semibold transition hover:border-black/20"
+            href="#work"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-[#514f59] transition hover:text-[#161925]"
           >
-            Lihat Portfolio
+            Lihat portfolio
+            <ArrowUpRight className="h-3.5 w-3.5" />
           </a>
         </div>
-
-        <p className="mt-5 text-sm text-[#7a7d87]">
-          Konsultasi gratis · Pengerjaan transparan · Support
-          setelah website rilis
-        </p>
       </div>
 
-      {/* Right */}
+      {/* Right — Featured project visual (Bertani) */}
       <div
         data-hero-preview
         className="relative"
       >
-        <div className="overflow-hidden rounded-[28px] border border-black/10 bg-white p-3">
-          <div className="flex h-10 items-center gap-2 border-b border-black/5 px-3">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#C1292E]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#F1D302]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#235789]" />
-
-            <div className="ml-3 h-5 flex-1 rounded-md bg-[#f1f2f4]" />
-          </div>
-
-          <div className="min-h-[480px] rounded-2xl bg-[#161925] p-8 text-white">
-            <div className="flex items-center justify-between text-xs text-white/50">
-              <strong className="text-white">
-                Kyan Labs.
-              </strong>
-
-              <span>Portfolio · Tentang · Kontak</span>
+        <div className="overflow-hidden rounded-lg bg-[#161925]">
+          {/* Set hasImage to true once /projects/bertani.webp is available in public/. */}
+          {false ? (
+            <Image
+              src="/projects/bertani.webp"
+              alt="Bertani — Web Application"
+              width={1200}
+              height={900}
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="aspect-[4/3] w-full object-cover"
+              priority
+            />
+          ) : (
+            <div className="flex aspect-[4/3] min-h-[400px] items-center justify-center p-8 sm:min-h-[480px]">
+              <div className="text-center">
+                <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/30">
+                  Featured Project
+                </p>
+                <p className="mt-3 text-3xl font-bold tracking-[-0.02em] text-white/50">
+                  Bertani
+                </p>
+                <p className="mt-2 max-w-[220px] text-sm text-white/40">
+                  Web Application — screenshot akan tampil di sini.
+                </p>
+              </div>
             </div>
-
-            <div className="pt-24">
-              <span className="text-xs font-medium uppercase tracking-[0.2em] text-[#F1D302]">
-                Pengalaman Digital
-              </span>
-
-              <h2 className="mt-5 max-w-md text-5xl font-bold leading-none tracking-[-0.05em]">
-                Website & aplikasi
-                <br />
-                yang membantu bisnis tumbuh.
-              </h2>
-
-              <p className="mt-6 max-w-sm leading-7 text-white/70">
-                Dirancang strategis untuk bisnis modern di Indonesia.
-              </p>
-
-              <div className="mt-12 h-28 rounded-2xl border border-white/10 bg-white/5" />
-            </div>
-          </div>
+          )}
         </div>
       </div>
     </section>
   );
 }
-

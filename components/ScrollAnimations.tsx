@@ -25,14 +25,14 @@ export default function ScrollAnimations() {
       heroTimeline
         .from("[data-hero-badge]", {
           opacity: 0,
-          y: 14,
+          y: 12,
           duration: 0.6,
         })
         .from(
           "[data-hero-title]",
           {
             opacity: 0,
-            y: 40,
+            y: 30,
             duration: 0.9,
           },
           "-=0.35",
@@ -41,7 +41,7 @@ export default function ScrollAnimations() {
           "[data-hero-text]",
           {
             opacity: 0,
-            y: 20,
+            y: 18,
             duration: 0.7,
           },
           "-=0.45",
@@ -50,7 +50,7 @@ export default function ScrollAnimations() {
           "[data-hero-actions]",
           {
             opacity: 0,
-            y: 18,
+            y: 16,
             duration: 0.7,
           },
           "-=0.45",
@@ -59,19 +59,15 @@ export default function ScrollAnimations() {
           "[data-hero-preview]",
           {
             opacity: 0,
-            y: 45,
-            scale: 0.96,
-            rotateY: -4,
-            rotateX: 3,
-            duration: 1,
+            y: 30,
+            duration: 0.9,
           },
-          "-=0.9",
+          "-=0.8",
         );
 
-      /* Hero preview scroll movement */
+      /* Hero preview subtle parallax */
       gsap.to("[data-hero-preview]", {
-        y: -30,
-        scale: 1.015,
+        y: -24,
         ease: "none",
         scrollTrigger: {
           trigger: "[data-hero]",
@@ -81,85 +77,48 @@ export default function ScrollAnimations() {
         },
       });
 
-      /* Trust */
-      gsap.from("[data-trust-item]", {
-        opacity: 0,
-        y: 20,
-        duration: 0.7,
-        stagger: 0.08,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: "[data-trust]",
-          start: "top 88%",
-          once: true,
-        },
-      });
-
       /* Generic section reveal */
       gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((element) => {
         gsap.from(element, {
           opacity: 0,
-          y: 35,
-          duration: 0.85,
+          y: 30,
+          duration: 0.8,
           ease: "power3.out",
           scrollTrigger: {
             trigger: element,
-            start: "top 86%",
+            start: "top 88%",
             once: true,
           },
         });
       });
 
-      /* Portfolio projects */
+      /* Selected work entrance */
       gsap.utils
         .toArray<HTMLElement>("[data-project]")
         .forEach((project) => {
           gsap.from(project, {
             opacity: 0,
-            y: 50,
-            duration: 0.9,
+            y: 30,
+            duration: 0.8,
             ease: "power3.out",
             scrollTrigger: {
               trigger: project,
-              start: "top 82%",
+              start: "top 88%",
               once: true,
             },
           });
-
-          const mockup = project.querySelector("[data-project-mockup]");
-
-          if (mockup) {
-            gsap.fromTo(
-              mockup,
-              {
-                y: 50,
-                rotate: -1.5,
-              },
-              {
-                y: 12,
-                rotate: 0,
-                ease: "none",
-                scrollTrigger: {
-                  trigger: project,
-                  start: "top bottom",
-                  end: "bottom 45%",
-                  scrub: 0.8,
-                },
-              },
-            );
-          }
         });
 
       /* Process steps */
       gsap.from("[data-process-step]", {
         opacity: 0,
-        x: 30,
-        duration: 0.75,
-        stagger: 0.12,
+        y: 20,
+        duration: 0.6,
+        stagger: 0.1,
         ease: "power3.out",
         scrollTrigger: {
           trigger: "[data-process-list]",
-          start: "top 80%",
+          start: "top 82%",
           once: true,
         },
       });
@@ -170,4 +129,3 @@ export default function ScrollAnimations() {
 
   return null;
 }
-
