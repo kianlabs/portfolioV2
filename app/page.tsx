@@ -1,21 +1,31 @@
+import About from "../components/About";
+import Contact from "../components/Contact";
+import FAQ from "../components/FAQ";
+import FloatingWhatsApp from "../components/FloatingWhatsApp";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
-import Projects from "../components/Projects";
-import Collaborators from "../components/Collaborators";
-import Contact from "../components/Contact";
-import Footer from "../components/Footer";
+import ScrollAnimations from "../components/ScrollAnimations";
+import SelectedWork from "../components/SelectedWork";
+import Process from "../components/Process";
+import Services from "../components/Services";
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-[#0a0a0a] text-white">
+
+      <main className="min-h-screen bg-[#FDFFFC] text-[#161925]">
         <Hero />
-        <Projects />
-        <Collaborators />
+        <SelectedWork />
+        <Services />
+        <Process />
+        <About />
+        <FAQ />
         <Contact />
       </main>
-      <Footer />
+
+      <ScrollAnimations />
+      <FloatingWhatsApp />
     </>
   );
 }

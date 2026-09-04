@@ -1,32 +1,78 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Instrument_Sans } from "next/font/google";
+import { siteConfig, siteUrl } from "@/lib/site";
 import "./globals.css";
 
-const geist = Geist({
-  variable: "--font-geist-sans",
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument-sans",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "Zed — Creative Developer & Designer",
-  description:
-    "Crafting monochrome, motion-driven digital experiences. 7+ years specializing in SaaS & agencies.",
+  metadataBase: new URL(siteUrl),
+
+  title: {
+    default: "Kyan Labs — Jasa Pembuatan Website & Aplikasi",
+    template: "%s | Kyan Labs",
+  },
+
+  description: siteConfig.description,
+
+  keywords: [
+    "jasa pembuatan website",
+    "jasa website",
+    "web developer",
+    "website UMKM",
+    "company profile",
+    "landing page",
+    "web application",
+    "UI UX",
+    "Kyan Labs",
+  ],
+
+  authors: [
+    {
+      name: "Kyan Labs",
+    },
+  ],
+
+  creator: "Kyan Labs",
+  publisher: "Kyan Labs",
+
+  alternates: {
+    canonical: "/",
+  },
+
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    url: "/",
+    siteName: "Kyan Labs",
+    title: "Kyan Labs — Jasa Pembuatan Website & Aplikasi",
+    description:
+      "Website, aplikasi web, dan solusi digital modern untuk membantu bisnis tampil lebih profesional dan mudah dipercaya.",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Kyan Labs — Jasa Pembuatan Website & Aplikasi",
+    description:
+      "Website, aplikasi web, dan solusi digital modern untuk bisnis.",
+  },
+
+  category: "technology",
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="id">
       <body
-        className={`${geist.variable} ${geistMono.variable} bg-[#0a0a0a] text-white antialiased`}
+        className={`${instrumentSans.variable} antialiased`}
       >
         {children}
       </body>
