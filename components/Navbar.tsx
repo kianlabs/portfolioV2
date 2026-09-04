@@ -1,13 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const links = [
-  { label: "Work", href: "#work" },
-  { label: "Services", href: "#layanan" },
-  { label: "Process", href: "#proses" },
-  { label: "About", href: "#tentang" },
+  { label: "Home", href: "#beranda" },
+  { label: "Projects", href: "#work" },
+  { label: "Blog", href: "#blog" },
   { label: "Contact", href: "#kontak" },
 ];
 
@@ -15,64 +14,91 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-[#FDFFFC]">
+    <header className="fixed inset-x-0 top-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/5">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <a href="#beranda" className="text-sm font-bold tracking-[-0.02em] uppercase">
-          Kyan Labs<span className="text-[#C1292E]">.</span>
+        {/* Logo */}
+        <a
+          href="#beranda"
+          className="text-sm font-bold tracking-[-0.02em] text-white"
+        >
+          Zed<span className="text-white/50">.</span>
         </a>
 
+        {/* Desktop Nav */}
         <nav className="hidden items-center gap-8 md:flex">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-[13px] font-medium text-[#514f59] transition hover:text-[#161925]"
+              className="text-[13px] font-medium text-white/60 transition hover:text-white"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        <a
-          href="#kontak"
-          className="hidden items-center gap-1.5 rounded-md bg-[#161925] px-5 py-2.5 text-[13px] font-semibold text-white transition hover:bg-[#C1292E] md:inline-flex"
-        >
-          Diskusikan project
-          <ArrowUpRight className="h-3.5 w-3.5" />
-        </a>
+        {/* CTA + Theme Toggle */}
+        <div className="hidden items-center gap-4 md:flex">
+          <button className="text-white/60 hover:text-white transition">
+            {/* Moon icon for dark mode toggle */}
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </button>
+          <a
+            href="#kontak"
+            className="px-5 py-2.5 text-[13px] font-semibold text-white bg-white/10 hover:bg-white/20 rounded-md transition border border-white/10"
+          >
+            Let&apos;s Talk
+          </a>
+        </div>
 
+        {/* Mobile Menu Button */}
         <button
           onClick={() => setOpen(!open)}
-          className="flex h-10 w-10 items-center justify-center md:hidden"
+          className="md:hidden text-white/60 hover:text-white"
           aria-label="Toggle menu"
         >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {open ? (
+            <X className="h-5 w-5" />
+          ) : (
+            <Menu className="h-5 w-5" />
+          )}
         </button>
       </div>
 
+      {/* Mobile Nav */}
       {open && (
-        <div className="border-t border-black/5 bg-[#FDFFFC] px-6 pb-6 pt-4 md:hidden">
-          <nav className="flex flex-col gap-4">
+        <nav className="border-t border-white/5 bg-[#0a0a0a] px-6 pb-6 pt-4 md:hidden">
+          <div className="flex flex-col gap-4">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
+                className="text-sm font-medium text-white/60 hover:text-white transition"
                 onClick={() => setOpen(false)}
-                className="text-sm font-medium text-[#514f59] transition hover:text-[#161925]"
               >
                 {link.label}
               </a>
             ))}
             <a
               href="#kontak"
-              onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center gap-1.5 rounded-md bg-[#161925] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#C1292E]"
+              className="mt-2 px-5 py-3 text-sm font-semibold text-white bg-white/10 hover:bg-white/20 rounded-md transition text-center border border-white/10"
             >
-              Diskusikan project
-              <ArrowUpRight className="h-3.5 w-3.5" />
+              Let&apos;s Talk
             </a>
-          </nav>
-        </div>
+          </div>
+        </nav>
       )}
     </header>
   );

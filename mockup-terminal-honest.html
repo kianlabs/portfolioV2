@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kyan Labs — Terminal + Honest Mix Mockup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #0a0a0a;
+      --fg: #d4d4d4;
+      --primary: #00ff41;
+      --secondary: #ffaa00;
+      --muted: #666;
+      --border: #333;
+    }
+
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Scanline CRT effect */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.1) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.3;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(10, 10, 10, 0.95);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      transition: color 0.15s;
+      text-transform: uppercase;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .kbd-hint {
+      color: var(--primary);
+      margin-right: 0.5rem;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.625rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 2rem;
+      border: 1px solid var(--secondary);
+      padding: 0.5rem 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 8vw, 6rem);
+      line-height: 1;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 .cursor {
+      display: inline-block;
+      width: 0.6em;
+      height: 1em;
+      background: var(--primary);
+      animation: blink 1s step-end infinite;
+      vertical-align: baseline;
+      margin-left: 0.1em;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .hero .tagline {
+      font-size: 1.125rem;
+      color: var(--muted);
+      max-width: 600px;
+      margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+
+    .hero .tagline strong {
+      color: var(--fg);
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.875rem 1.75rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border: 2px solid;
+      transition: all 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--bg);
+      border-color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--primary);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--fg);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* ASCII divider */
+    .ascii-divider {
+      text-align: center;
+      color: var(--border);
+      font-size: 0.75rem;
+      margin: 4rem 0;
+      user-select: none;
+    }
+
+    /* Section */
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-header .num {
+      font-size: 1.5rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    /* Project card - terminal style */
+    .project-card {
+      background: #0f0f0f;
+      border: 1px solid var(--border);
+      padding: 0;
+      margin-bottom: 2rem;
+    }
+
+    .project-header {
+      background: #151515;
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .project-header .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--muted);
+    }
+
+    .project-header .dot.green { background: var(--primary); }
+
+    .project-body {
+      padding: 2rem 1.5rem;
+    }
+
+    .project-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .project-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+      font-size: 0.875rem;
+    }
+
+    .meta-item {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .meta-label {
+      color: var(--muted);
+      min-width: 120px;
+    }
+
+    .meta-value {
+      color: var(--fg);
+      font-weight: 500;
+    }
+
+    .meta-value.highlight {
+      color: var(--primary);
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-box {
+      background: #0f0f0f;
+      border: 1px solid var(--border);
+      padding: 2rem;
+      transition: border-color 0.2s;
+    }
+
+    .service-box:hover {
+      border-color: var(--primary);
+    }
+
+    .service-box h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .service-box p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .service-box .price {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .service-box .price strong {
+      color: var(--fg);
+      font-size: 1.125rem;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    /* About - personal */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .avatar-box {
+      width: 200px;
+      height: 200px;
+      border: 2px solid var(--primary);
+      background: #0f0f0f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avatar-box::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 255, 65, 0.03) 2px,
+        rgba(0, 255, 65, 0.03) 4px
+      );
+      pointer-events: none;
+    }
+
+    .about-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+
+    .about-content p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .about-content p strong {
+      color: var(--fg);
+    }
+
+    .stack-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .stack-list span {
+      padding: 0.5rem 1rem;
+      background: #0f0f0f;
+      border: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* Contact */
+    .contact-box {
+      background: #0f0f0f;
+      border: 2px solid var(--primary);
+      padding: 3rem;
+      text-align: center;
+    }
+
+    .contact-box h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 2rem;
+      font-size: 0.875rem;
+    }
+
+    .contact-info a {
+      color: var(--primary);
+      transition: color 0.2s;
+    }
+
+    .contact-info a:hover {
+      color: var(--secondary);
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-info {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">> KYAN<span>_</span>LABS</div>
+    <div class="nav-links">
+      <a href="#work"><span class="kbd-hint">[1]</span>Work</a>
+      <a href="#services"><span class="kbd-hint">[2]</span>Services</a>
+      <a href="#about"><span class="kbd-hint">[3]</span>About</a>
+      <a href="#contact"><span class="kbd-hint">[4]</span>Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">[ WEB DEVELOPMENT ]</div>
+      <h1>
+        Gw bikin website.<span class="cursor"></span>
+      </h1>
+      <div class="tagline">
+        <strong>Lo dapet kode bersih, loading cepat, gak ribet.</strong><br>
+        Untuk UMKM, startup, sama personal brand yang butuh web profesional tanpa drama.
+      </div>
+      <div class="cta-group">
+        <a href="#contact" class="btn btn-primary">Hubungi via WhatsApp</a>
+        <a href="#work" class="btn btn-secondary">Lihat Portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="ascii-divider">
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  </div>
+
+  <!-- Work Section -->
+  <section id="work" class="section">
+    <div class="section-header">
+      <span class="num">[01]</span>
+      <h2>PROJECTS</h2>
+    </div>
+
+    <!-- Project Card - Technical Metrics Style -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="dot green"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span style="margin-left: auto; font-size: 0.75rem; color: #666;">bertani.vercel.app</span>
+      </div>
+      <div class="project-body">
+        <h3 class="project-title">$ bertani</h3>
+        <p style="color: #999; font-size: 0.875rem; margin-bottom: 1.5rem;">
+          Platform monitoring lahan pertanian. Dari tracking hasil panen sampai management operasional.
+        </p>
+        
+        <div class="project-meta">
+          <div class="meta-item">
+            <span class="meta-label">▸ Stack:</span>
+            <span class="meta-value">Next.js 14, Prisma, PostgreSQL</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">▸ Lighthouse:</span>
+            <span class="meta-value highlight">98/100</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">▸ Bundle size:</span>
+            <span class="meta-value highlight">87KB gzip</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">▸ Time to Interactive:</span>
+            <span class="meta-value highlight">1.2s</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">▸ Total commits:</span>
+            <span class="meta-value">187</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">▸ Build time:</span>
+            <span class="meta-value">34s</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bisa tambah project card lain di sini -->
+  </section>
+
+  <div class="ascii-divider">
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  </div>
+
+  <!-- Services -->
+  <section id="services" class="section">
+    <div class="section-header">
+      <span class="num">[02]</span>
+      <h2>SERVICES</h2>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-box">
+        <h3>Landing Page</h3>
+        <p>Company profile atau landing page untuk bisnis. 5-7 sections, mobile responsive, optimized.</p>
+        <div class="price">
+          <strong>Rp 3.500.000</strong>
+          5-7 hari kerja • 3x revisi
+        </div>
+      </div>
+
+      <div class="service-box">
+        <h3>Web Application</h3>
+        <p>Dashboard, sistem informasi, atau aplikasi custom. Database, auth, admin panel lengkap.</p>
+        <div class="price">
+          <strong>Mulai Rp 8.000.000</strong>
+          Tergantung kompleksitas fitur
+        </div>
+      </div>
+
+      <div class="service-box">
+        <h3>Maintenance</h3>
+        <p>Update konten, bug fix, optimasi performance, dan penambahan fitur minor pasca-launch.</p>
+        <div class="price">
+          <strong>Rp 500.000/bulan</strong>
+          atau Rp 150.000/jam
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top: 2rem; font-size: 0.875rem; color: #666;">
+      * Harga sudah termasuk domain + hosting 1 tahun untuk paket landing page.<br>
+      * Web app hosting tergantung requirement (VPS/serverless).<br>
+      * Gak ada biaya tersembunyi.
+    </p>
+  </section>
+
+  <div class="ascii-divider">
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  </div>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <div class="section-header">
+      <span class="num">[03]</span>
+      <h2>ABOUT</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="avatar-box">
+        👨‍💻
+      </div>
+      <div class="about-content">
+        <h3>Gw Kyan.</h3>
+        <p>
+          <strong>Web developer based in Indonesia.</strong> Bikin website dan aplikasi web sejak 2023. 
+          Kerja solo, kadang collab sama designer atau backend engineer kalo project gede.
+        </p>
+        <p>
+          Client rata-rata <strong>UMKM, startup seed stage, dan personal brand</strong> yang butuh presence online tapi gak mau ribet sama agency besar yang mahal dan lambat.
+        </p>
+        <p>
+          <strong>No template abal-abal.</strong> Semua kode ditulis dari scratch, disesuaikan sama kebutuhan bisnis lo. 
+          Fast, clean, maintainable.
+        </p>
+
+        <div class="stack-list">
+          <span>React</span>
+          <span>Next.js</span>
+          <span>TypeScript</span>
+          <span>Tailwind CSS</span>
+          <span>Node.js</span>
+          <span>Prisma</span>
+          <span>PostgreSQL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ascii-divider">
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  </div>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="contact-box">
+      <h2>Punya Project?</h2>
+      <p>Diskusiin ide lo. Gw bales dalam 24 jam.</p>
+      
+      <a href="https://wa.me/6281318679190" target="_blank" class="btn btn-primary" style="display: inline-block;">
+        Chat via WhatsApp
+      </a>
+
+      <div class="contact-info">
+        <div>
+          <div style="color: #666; font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">WhatsApp</div>
+          <a href="https://wa.me/6281318679190" target="_blank">+62 813-1867-9190</a>
+        </div>
+        <div>
+          <div style="color: #666; font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Email</div>
+          <a href="mailto:ridzkyan0504@gmail.com">ridzkyan0504@gmail.com</a>
+        </div>
+        <div>
+          <div style="color: #666; font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">GitHub</div>
+          <a href="https://github.com/kianlabs" target="_blank">github.com/kianlabs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 Kyan Labs. Built with Next.js + Tailwind CSS.</p>
+  </footer>
+</body>
+</html>
